@@ -13,6 +13,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware(['auth'])->group(function() {
 Route::post('registroA','RegistroController@store'); 
+Route::post('enviarToken','EmailController@enviarCorreo');
 
     /*Alumnos    
     Route::post('alumnos/store','AlumnoController@store')->name('alumnos.store')
@@ -39,7 +40,8 @@ Route::post('registroA','RegistroController@store');
       ->middleware('permission:alumno.index'); 
       //creacion  
       Route::post('alumno/datosGenerales/create','AlumnoController@indexDatosGeneralesC')->name('alumno.indexDatosGeneralesC')
-      ->middleware('permission:alumno.create');             
+      ->middleware('permission:alumno.create');        
+      Route::post('enviarToken','EmailController@enviarCorreo')->middleware('permission:token');     
       //eliminacion
       Route::post('alumno/datosGenerales/destroy','AlumnoController@indexDatosGeneralesE')->name('alumno.indexDatosGeneralesE')
       ->middleware('permission:alumno.destroy'); 
@@ -48,17 +50,20 @@ Route::post('registroA','RegistroController@store');
       Route::get('alumno/escolar','AlumnoController@indexEscolar')->name('alumno.indexEscolar')
       ->middleware('permission:alumno.escolar');  
       //creacion
-      Route::post('alumno/alumno/escolar/create','AlumnoController@indexEscolarC')->name('alumno.indexEscolar')
-      ->middleware('permission:alumno.escolarCreate');  
-      //eliminacion
-      Route::get('alumno/escolar/destroy','AlumnoController@indexEscolarE')->name('alumno.indexEscolarE')
-      ->middleware('permission:alumno.escolarDestroy');  
+      Route::post('alumno/escolar/create','AlumnoController@indexEscolarC')->name('alumno.indexEscolar')
+      ->middleware('permission:alumno.escolarCreate');        
 
 
       Route::get('alumno/familiares','AlumnoController@indexFamiliares')->name('alumno.indexFamiliares')
       ->middleware('permission:alumno.familiar');  
+        Route::post('alumno/familiares/create','AlumnoController@indexFamiliaresC')->name('alumno.indexFamiliares')
+        ->middleware('permission:alumno.familiarCreate');  
+
       Route::get('alumno/solicitud','AlumnoController@indexSolicitud')->name('alumno.indexSolicitud')
       ->middleware('permission:alumno.solicitud');  
+        Route::post('alumno/solicitud/create','AlumnoController@indexSolicitudC')->name('alumno.indexSolicitudC')
+      ->middleware('permission:alumno.solicitud');
+
       Route::get('alumno/empresa','AlumnoController@indexEmpresa')->name('alumno.indexEmpresa')
       ->middleware('permission:alumno.empresa');  
       Route::get('alumno/anteproyecto','AlumnoController@indexAnteproyecto')->name('alumno.indexAnteproyecto')
@@ -74,6 +79,8 @@ Route::post('registroA','RegistroController@store');
         ->middleware('permission:jefe.index');  
     Route::get('jefe/token','JefeController@indexToken')->name('jefe.indexToken')
         ->middleware('permission:jefe.index');  
+        Route::get('jefe/jefe/token/enviar/{s}','JefeController@indexTokenE')->name('jefe.indexToken')
+        ->middleware('permission:jefe.index'); 
     Route::get('jefe/docentes','JefeController@indexDocentes')->name('jefe.indexDocentes')
         ->middleware('permission:jefe.index');  
     Route::get('jefe/asesores','JefeController@indexAsesores')->name('jefe.indexAsesores')

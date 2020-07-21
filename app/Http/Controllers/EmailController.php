@@ -3,9 +3,34 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class EmailController extends Controller
 {
+
+
+    public function enviarCorreo(Request $request)
+    {
+        /** Obtenemos los parametros */
+        $asunto = 'Usa este token para continuar con tu registro';
+        $contenido = 'Token';
+        $adjunto = 'token adjunto';
+        /**
+         * El primer parametro es nuestra vista
+         * El segundo parametro son los valores a inyectar en la vista
+         * El tercer parametro es la instancia que define los métodos necesarios para el envío del correo
+         * use() nos permite introducir valores dentro del closure para ser utilizadas por la instancia
+         */
+        Mail::send('email', ['contenido' => $contenido], function ($mail) use ($asunto, $adjunto) {
+            $mail->from('tesji@residencias.com', 'T O K E N');
+            $mail->to('ejemplo@mail.com');
+            $mail->subject($asunto);
+            $mail->attach($adjunto);            
+        });
+        /** Respondemos con status OK */
+        return response()->json(['status' => 200, 'message' => 'Envío exitoso']);
+    }
+
     /**
      * Display a listing of the resource.
      *

@@ -36,13 +36,22 @@
             <input type="text" name="domicilio" value={{$n->domicilio}}></input>
         </div>
         <div class="col-sm-3">
+            <label for="nss">Ciudad </label> <br>
+            <input type="text" name="ciudad" value={{$n->ciudad}}></input>
+        </div>
+        <div class="col-sm-3">
+            <label for="nss">Código Postal </label> <br>
+            <input type="text" name="codigo" value={{$n->codigoPostal}}></input>
+        </div>
+        <div class="col-sm-6">
             <label for="correo">Correo electrónico: </label> <br>
             <input type="text" name="correo" readonly value={{ Auth::user()->email }}></input>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-6">
             <label for="nss">Numero de seguridad social </label> <br>
             <input type="text" name="nss" value={{$n->NSS}}></input>
         </div>
+        
     </div>
     <br>
     <center>
@@ -83,10 +92,18 @@
             <input type="text" name="domicilio"></input>
         </div>
         <div class="col-sm-3">
+            <label for="nss">Ciudad </label> <br>
+            <input type="text" name="ciudad" ></input>
+        </div>
+        <div class="col-sm-3">
+            <label for="nss">Código Postal </label> <br>
+            <input type="text" name="codigo" ></input>
+        </div>
+        <div class="col-sm-6">
             <label for="correo">Correo electrónico: </label> <br>
             <input type="text" name="correo" readonly value={{ Auth::user()->email }}></input>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-6">
             <label for="nss">Numero de seguridad social </label> <br>
             <input type="text" name="nss"></input>
         </div>

@@ -37,7 +37,9 @@
                         @can('alumno.index')
                         <li class="nav-item"><a class="nav-link" href="{{route('alumno.indexDatosGenerales')}}">Alumnos</a></li>
                         @endcan
-                       
+                        @can('jefe.index')
+                        <li class="nav-item"><a class="nav-link" href="{{route('jefe.index')}}">Jefe de División</a></li>
+                        @endcan
                     </ul>
 
                     <!-- Right Side Of Navbar -->

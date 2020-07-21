@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <p>Token</p>
+    <p>:::"Las maquinas son inútiles, solo dan respuestas":::</p>
+    <p>Usa este token para continuar con tu registro{{$e}}</p>
+    <a href="">Liga de la pagina--></a>
 </body>
 </html>

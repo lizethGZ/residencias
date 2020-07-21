@@ -24,8 +24,8 @@
                                                     <td>{{$solicitudes->nombre}}</td>
                                                     <td>{{$solicitudes->telefonoAlumno}}</td>
                                                     <td>{{$solicitudes->email}}</td>  
-                                                    <td><form method="get" action="/token/{{$solicitudes->email}}"><button type="submit" class="btn btn-success">Mandar token</button></form></td>                                                          
-                                                    <td><button href="{{route('proyecto.create')}}" type="submit" class="btn btn-danger">Eliminar</button></td>
+                                                    <td><form method="get" action="jefe/token/enviar/{{$solicitudes->email}}"><button type="submit" class="btn btn-success">Mandar token</button></form></td>                                                          
+                                                    <td><button href="" type="submit" class="btn btn-danger">Eliminar</button></td>
                                                 </tr>
                                             @endforeach                                   				
                                         </tbody>

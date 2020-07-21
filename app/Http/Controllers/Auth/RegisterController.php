@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\Email;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use GuzzleHttp\Psr7\Request;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Caffeinated\Shinobi;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -67,7 +69,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {       
-    
+//        Mail::to($data['email'])->send(new Email);
+        
        $user= User::create([
             'name' => $data['name'],
             'email' => $data['email'],
